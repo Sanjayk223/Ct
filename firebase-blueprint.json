@@ -1,0 +1,207 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Public creator profile and like-based coin ledger (no PII).",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "username": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "bio": { "type": "string" },
+        "isDiscoverable": { "type": "boolean" },
+        "coinsBalance": { "type": "integer" },
+        "withdrawnCoins": { "type": "integer" },
+        "totalLikesReceived": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "displayName", "username", "isDiscoverable", "coinsBalance", "withdrawnCoins", "totalLikesReceived", "createdAt", "updatedAt"]
+    },
+    "WithdrawalRequest": {
+      "title": "WithdrawalRequest",
+      "description": "Private UPI payout withdrawal request scoped to user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "upiId": { "type": "string" },
+        "coinsRedeemed": { "type": "integer" },
+        "amountInr": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "processing", "completed"] },
+        "referenceCode": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "upiId", "coinsRedeemed", "amountInr", "status", "referenceCode", "createdAt"]
+    },
+    "StoryItem": {
+      "title": "StoryItem",
+      "description": "24h creator story with R2 media URL, sticker, and hashtags.",
+      "type": "object",
+      "properties": {
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorAvatar": { "type": "string" },
+        "mediaUrl": { "type": "string" },
+        "mediaType": { "type": "string", "enum": ["image", "video"] },
+        "caption": { "type": "string" },
+        "stickerText": { "type": "string" },
+        "hashtags": { "type": "array" },
+        "viewersCount": { "type": "integer" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["authorId", "authorName", "mediaUrl", "mediaType", "viewersCount", "isActive", "createdAt"]
+    },
+    "PostItem": {
+      "title": "PostItem",
+      "description": "Instagram-style feed post with R2 media, hashtags, trending sticker, and like coins.",
+      "type": "object",
+      "properties": {
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorAvatar": { "type": "string" },
+        "mediaUrl": { "type": "string" },
+        "mediaType": { "type": "string", "enum": ["image", "video"] },
+        "caption": { "type": "string" },
+        "hashtags": { "type": "array" },
+        "trendingSticker": { "type": "string" },
+        "likesCount": { "type": "integer" },
+        "commentsCount": { "type": "integer" },
+        "coinsAwarded": { "type": "integer" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["authorId", "authorName", "mediaUrl", "mediaType", "caption", "hashtags", "likesCount", "commentsCount", "coinsAwarded", "isPublished", "createdAt", "updatedAt"]
+    },
+    "ReelItem": {
+      "title": "ReelItem",
+      "description": "Vertical short video reel hosted on Cloudflare R2 with hashtags, sticker, and coins.",
+      "type": "object",
+      "properties": {
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorAvatar": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "caption": { "type": "string" },
+        "hashtags": { "type": "array" },
+        "trendingSticker": { "type": "string" },
+        "musicTitle": { "type": "string" },
+        "likesCount": { "type": "integer" },
+        "commentsCount": { "type": "integer" },
+        "coinsAwarded": { "type": "integer" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["authorId", "authorName", "videoUrl", "caption", "hashtags", "likesCount", "commentsCount", "coinsAwarded", "isPublished", "createdAt", "updatedAt"]
+    },
+    "LikeRecord": {
+      "title": "LikeRecord",
+      "description": "Per-user like record for atomic like/coin tracking.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "targetId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "targetId", "createdAt"]
+    },
+    "CommentRecord": {
+      "title": "CommentRecord",
+      "description": "Comment on a post or reel.",
+      "type": "object",
+      "properties": {
+        "targetId": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorAvatar": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["targetId", "authorId", "authorName", "text", "createdAt"]
+    },
+    "ChatRoom": {
+      "title": "ChatRoom",
+      "description": "Direct 1-on-1 or Group chat room.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "isGroup": { "type": "boolean" },
+        "memberIds": { "type": "array" },
+        "memberNames": { "type": "object" },
+        "lastMessage": { "type": "string" },
+        "lastSenderName": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "isGroup", "memberIds", "memberNames", "lastMessage", "lastSenderName", "createdBy", "createdAt", "updatedAt"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Chat message inside a direct or group chat room.",
+      "type": "object",
+      "properties": {
+        "chatId": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderAvatar": { "type": "string" },
+        "text": { "type": "string" },
+        "stickerText": { "type": "string" },
+        "mediaUrl": { "type": "string" },
+        "memberIds": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["chatId", "senderId", "senderName", "text", "memberIds", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Public creator profiles and coin balances."
+    },
+    "/users/{userId}/withdrawals/{withdrawalId}": {
+      "schema": { "$ref": "#/entities/WithdrawalRequest" },
+      "description": "Private UPI withdrawal requests per creator."
+    },
+    "/stories/{storyId}": {
+      "schema": { "$ref": "#/entities/StoryItem" },
+      "description": "Active creator stories."
+    },
+    "/posts/{postId}": {
+      "schema": { "$ref": "#/entities/PostItem" },
+      "description": "Feed posts with hashtags, trending stickers, and coin counts."
+    },
+    "/posts/{postId}/likes/{likeUserId}": {
+      "schema": { "$ref": "#/entities/LikeRecord" },
+      "description": "Post like markers."
+    },
+    "/posts/{postId}/comments/{commentId}": {
+      "schema": { "$ref": "#/entities/CommentRecord" },
+      "description": "Post comments."
+    },
+    "/reels/{reelId}": {
+      "schema": { "$ref": "#/entities/ReelItem" },
+      "description": "Vertical reels uploaded via Cloudflare R2."
+    },
+    "/reels/{reelId}/likes/{likeUserId}": {
+      "schema": { "$ref": "#/entities/LikeRecord" },
+      "description": "Reel like markers."
+    },
+    "/reels/{reelId}/comments/{commentId}": {
+      "schema": { "$ref": "#/entities/CommentRecord" },
+      "description": "Reel comments."
+    },
+    "/chats/{chatId}": {
+      "schema": { "$ref": "#/entities/ChatRoom" },
+      "description": "Direct and group chat rooms."
+    },
+    "/chats/{chatId}/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessage" },
+      "description": "Messages inside chat rooms."
+    }
+  }
+}

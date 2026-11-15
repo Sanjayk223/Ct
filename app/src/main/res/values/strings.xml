@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">VibeReel</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_reels">Reels</string>
+    <string name="nav_upload">Upload</string>
+    <string name="nav_chats">Chats</string>
+    <string name="nav_wallet">Wallet</string>
+
+    <string name="auth_title">VibeReel</string>
+    <string name="auth_subtitle">Create Stories &amp; Reels, Chat with Squads, Earn Coins from Likes &amp; Withdraw via UPI</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="signing_in">Signing in…</string>
+
+    <string name="your_story">Your Story</string>
+    <string name="upload_title">Create &amp; Upload to R2</string>
+    <string name="pick_media">Pick Photo / Video</string>
+    <string name="publish_now">Upload to R2 &amp; Publish</string>
+    <string name="r2_ready">Cloudflare R2 Ready</string>
+    <string name="r2_not_configured">Configure R2 keys in AI Studio Secrets to enable cloud media upload</string>
+
+    <string name="wallet_title">Creator Coin Wallet</string>
+    <string name="withdraw_upi">Withdraw via UPI</string>
+    <string name="upi_hint">Enter UPI ID (e.g. name@okicici)</string>
+    <string name="coins_hint">Coins to redeem (min 100)</string>
+    <string name="new_dm">New DM</string>
+    <string name="new_group">New Group</string>
+    <string name="send_message_hint">Type a message…</string>
+    <string name="add_comment_hint">Add a comment…</string>
+    <string name="empty_posts">No posts yet. Tap Upload to share your first photo or video!</string>
+    <string name="empty_reels">No reels yet. Upload a vertical video to Cloudflare R2 and start earning coins!</string>
+    <string name="empty_chats">No chats yet. Start a 1-on-1 DM or create a Group Chat!</string>
+    <string name="empty_withdrawals">No UPI withdrawals yet. Earn 10 coins per like and redeem here!</string>
+</resources>

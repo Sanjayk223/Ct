@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vr_bg">#FF0B0B10</color>
+    <color name="vr_surface">#FF14131E</color>
+    <color name="vr_surface_elevated">#FF1E1B2E</color>
+    <color name="vr_surface_stroke">#FF2E2A44</color>
+    <color name="vr_primary">#FFFF3B6B</color>
+    <color name="vr_primary_container">#FF4A1228</color>
+    <color name="vr_secondary">#FF7C4DFF</color>
+    <color name="vr_secondary_container">#FF2B1C5A</color>
+    <color name="vr_gold">#FFFFB300</color>
+    <color name="vr_gold_container">#FF382800</color>
+    <color name="vr_green">#FF00E676</color>
+    <color name="vr_text_primary">#FFF8F7FC</color>
+    <color name="vr_text_secondary">#FFA7A3BD</color>
+    <color name="vr_text_muted">#FF706B88</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

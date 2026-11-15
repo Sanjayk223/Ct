@@ -1,0 +1,6 @@
+{
+  "name": "VibeReel",
+  "description": "Java social video and community app with Stories, Reels, Posts, Direct & Group Chats, Cloudflare R2 media uploads, hashtags, trending stickers, and like-based creator coins with UPI withdrawal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
